@@ -24,5 +24,6 @@ public class Prize-Table{
                 energy_price == 0;
             }
         }
+        return energy_price;
     }
 }
