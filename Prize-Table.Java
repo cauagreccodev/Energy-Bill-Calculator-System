@@ -1,29 +1,34 @@
 public class Prize-Table{
     public static float AccountCalculate(double usagePerkWh, int flag, int low_income){ //usarei float para economizar memoria
-    static float energy_price;
-        while(usagePerKwh != 0){
-
+    float energy_price;
+        if(low_income == 1){
+            energy_price -= energy_price * 0.10;
+        }    
+        if(usagePerkWh > 200){
+            energy_price += (usagePerkWh - 200) * 0.90;
+            energy_price += (usagePerkWh - 100) * 0.75;
+            energy_price += 100 * 0.60;
             if(flag == 2){
-                energy_price == usagePerKwh * 0.05
+            energy_price = usagePerkWh * 0.05;
             }
-            
-            if(flag == 3){
-                energy_price == usagePerKwh * 0.10
-            }
-
-            if(usagePerKwh > 200){
-                energy_price = 100 * 0.90;
-                usagePerKwh -= 100;
-            }
-            if(usagePerKwh > 100 && usagePerKwh <= 200){
-                energy_price = 100 * 0.75;
-                usagePerKwh -= 100;
-            }
-            else(usagePerKwh <= 100){
-                energy_price = usagePerKwh * 0.60;
-                energy_price == 0;
+            else if(flag == 3){
+                energy_price = usagePerkWh * 0.10;
             }
         }
-        return energy_price;
+        if(usagePerkWh > 100 && usagePerkWh <= 200){
+            energy_price += (usagePerkWh - 100) * 0.75;
+            energy_price += 100 * 0.60;
+            if(flag == 2){
+            energy_price = usagePerkWh * 0.05;
+            }
+            else if(flag == 3){
+                energy_price = usagePerkWh * 0.10;
+            }
+            if(low_income == 1 && )
+        }
+        else{
+            energy_price += usagePerkWh * 0.60;
+        }
+    return energy_price;
     }
 }
